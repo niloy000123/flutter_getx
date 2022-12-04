@@ -6,16 +6,16 @@ import '../component/user_list_row.dart';
 import '../model/users_list_model.dart';
 import '../view_model/users_view_model.dart';
 
-class HomeScreen extends GetWidget<UsersViewModel> {
-  HomeScreen({super.key});
-  final usersViewModel = Get.put(UsersViewModel());
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(),
       body: Container(
-        child: _ui(usersViewModel),
+        child: GetBuilder<UsersViewModel>(
+            init: UsersViewModel(), builder: (controller) => _ui(controller)),
       ),
     );
   }
