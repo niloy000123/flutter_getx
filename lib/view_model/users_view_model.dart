@@ -6,12 +6,6 @@ import '../repo/api_status.dart';
 import '../repo/user_services.dart';
 
 class UsersViewModel extends GetxController {
-  // final fruit = Fruit().obs;
-  // void changeFruit(String newFruit) {
-  //   fruit.update((thisFruit) {
-  //     thisFruit!.name = newFruit;
-  //   });
-  // }
   bool _loading = false;
   List<UserModel> _userListModel = [];
   UserError? _userError;
@@ -44,12 +38,10 @@ class UsersViewModel extends GetxController {
       setuserListModel(response.responce as List<UserModel>);
     }
     if (response is Failure) {
-      print('in_false');
       UserError userError =
           UserError(code: response.code, message: response.errorResponce);
       setUserError(userError);
     }
     setLoding(false);
-    print('in_succ');
   }
 }

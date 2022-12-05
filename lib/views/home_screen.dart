@@ -11,34 +11,34 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(),
-      body: Container(
-        child: GetBuilder<UsersViewModel>(
-            init: UsersViewModel(), builder: (controller) => _ui(controller)),
+      backgroundColor: const Color.fromARGB(255, 196, 196, 196),
+      appBar: AppBar(
+        title: const Text('Flutter Getx'),
       ),
+      body: GetBuilder<UsersViewModel>(
+          init: UsersViewModel(), builder: (controller) => _ui(controller)),
     );
   }
 
   _ui(UsersViewModel usersViewModel) {
     if (usersViewModel.loading) {
-      return AppLoading();
+      return const AppLoading();
     }
     if (usersViewModel.userError != null) {
-      return Container(
-        child: Text(usersViewModel.userError!.message.toString()),
-      );
+      return Text(usersViewModel.userError!.message.toString());
     }
-    return Column(
-      children: [
-        ...List.generate(
-          usersViewModel.userListModel.length,
-          (index) {
-            UserModel userModel = usersViewModel.userListModel[index];
-            return UserListRow(userModel: userModel, onTap: () async {});
-          },
-        )
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          ...List.generate(
+            usersViewModel.userListModel.length,
+            (index) {
+              UserModel userModel = usersViewModel.userListModel[index];
+              return UserListRow(userModel: userModel, onTap: () async {});
+            },
+          )
+        ],
+      ),
     );
   }
 }

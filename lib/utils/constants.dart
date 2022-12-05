@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 const String USER_LIST = 'https://jsonplaceholder.typicode.com/users';
 
 //error
