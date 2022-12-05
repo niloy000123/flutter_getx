@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 196, 196, 196),
+      backgroundColor: Color.fromARGB(255, 235, 235, 235),
       appBar: AppBar(
         title: const Text('Flutter Getx'),
       ),

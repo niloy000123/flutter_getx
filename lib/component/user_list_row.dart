@@ -11,7 +11,7 @@ class UserListRow extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Card(
-        elevation: 3,
+        elevation: 1,
         child: Container(
           width: double.infinity,
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
